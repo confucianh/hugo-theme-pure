@@ -1,9 +1,19 @@
 {{- $social := .Site.Params.profile.social }}
 {{- with $social }}
 <ul class="social-links">
-    {{- range $name,$url := $social.links }}
+    {{- range $name,$url := $social.links.brand }}
     <li><a href="{{- $url | absURL }}" target="_blank" title="{{- $name }}" data-toggle=tooltip data-placement=top >
-            <i class="icon icon-{{$name}}"></i></a></li>
+            <!-- <i class="icon icon-{{$name}}"></i> -->
+            <i class="fab fa-{{$name}}"></i>
+        </a>
+    </li>
+    {{- end }}
+    {{- range $name,$url := $social.links.solid }}
+    <li><a href="{{- $url | absURL }}" target="_blank" title="{{- $name }}" data-toggle=tooltip data-placement=top >
+            <!-- <i class="icon icon-{{$name}}"></i> -->
+            <i class="fas fa-{{$name}}"></i>
+        </a>
+    </li>
     {{- end }}
 </ul>
 {{- end }}
